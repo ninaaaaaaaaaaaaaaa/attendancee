@@ -1,5 +1,80 @@
 @extends('layouts.app')
+<style>
+.btn-primary{
+    position:relative;
+  width:100%;
+  padding:20px;
+  border-radius:6px;
+  border:0;
+  background:#084e0a;
+  font-size:1.2em;
+  color:#ffeb3b;
+  text-shadow:1px 1px 0px rgba(0,0,0,.1);
+  box-shadow:0px 3px 0px #0b2b0c;
+  cursor: pointer;
+  margin-bottom: 13px;
+  font-weight: bold;
+}
+.btn-primary:active{
+  top:3px;
+  box-shadow:none;
+}
+input:focus, 
+textarea:focus {
+    outline: none;
+}
 
+body {
+  background:#f54710;
+}
+.container{
+  background:#0a209a;
+  border-radius:6px;
+  padding:28px;
+  padding-top:30px;
+  width:400px;
+  margin:50px auto;
+  box-shadow:15px 15px 0px rgba(0,0,0,.1);
+}
+.good{
+  text-align:center;
+  font-size:1.9em;
+  font-weight:900;
+  color:#f1d907;
+  
+}
+input {
+  width:100%;
+  background:#f5f5f5;
+  border:0;
+  padding:20px;
+  border-radius:6px;
+  margin-bottom:15px;
+  border:1px solid #eee;
+  font-weight: bolder;
+  font-size: 15px;
+}
+.btn-link{
+  text-align:center;
+  font-size:15px;
+  color:#777;
+  cursor:pointer;
+  margin-bottom: 13px;
+  margin: 27%;
+}
+.card-header{
+  text-align:center;
+  padding:20px;
+  padding-top:35px;
+  color:#777;
+  cursor:pointer;
+  font-weight: bolder;
+}
+.col-md-4{
+    color:white;
+    font-weight: bolder;
+}
+</style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,7 +90,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('お名前') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input placeholder="例）佐藤太郎" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +104,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input placeholder="メールアドレス" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +118,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input placeholder="パスワード" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +132,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('再確認　パスワード') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input placeholder="再確認用　パスワード" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
@@ -65,7 +140,7 @@
                             <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('生年月日') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="text" class="form-control @error('name') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
+                                <input placeholder="例）20220101" id="birthday" type="text" class="form-control @error('name') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
 
                                 @error('birthday')
                                     <span class="invalid-feedback" role="alert">
@@ -79,7 +154,7 @@
                             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('電話番号') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="text" class="form-control @error('name') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                                <input placeholder="例）02012345678" id="phone_number" type="text" class="form-control @error('name') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
 
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
