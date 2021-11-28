@@ -23,6 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
     public function index()
     {
         return view('home');
@@ -32,4 +33,12 @@ class HomeController extends Controller
         $users = DB::select('select * from users');
         return view('find', ['users' => $users]);
     }
+    public function edit($id)
+    {
+
+        $auth = Auth::user();
+
+        return view('user.edit',[ 'auth' => $auth ]);
+
+ }
 }
