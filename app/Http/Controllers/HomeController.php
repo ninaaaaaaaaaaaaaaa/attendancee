@@ -13,23 +13,21 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function login(){
-        return view('login');
-    }
-    public function index()
+    
+    public function __construct()
     {
-        return view('home');
+        $this->middleware('auth');
     }
+
+    
+    
     public function find()
     {
         $users = DB::select('select * from users');

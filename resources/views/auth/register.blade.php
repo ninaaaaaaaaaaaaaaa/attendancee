@@ -6,11 +6,11 @@
   padding:20px;
   border-radius:6px;
   border:0;
-  background:#084e0a;
+  background:#1a237e;
   font-size:1.2em;
   color:#ffeb3b;
   text-shadow:1px 1px 0px rgba(0,0,0,.1);
-  box-shadow:0px 3px 0px #0b2b0c;
+  box-shadow:0px 3px 0px #02030c;
   cursor: pointer;
   margin-bottom: 13px;
   font-weight: bold;
@@ -25,10 +25,10 @@ textarea:focus {
 }
 
 body {
-  background:#f54710;
+  background:#0e3a11;
 }
 .container{
-  background:#0a209a;
+  background:#b71c1c;
   border-radius:6px;
   padding:28px;
   padding-top:30px;
@@ -74,13 +74,17 @@ input {
     color:white;
     font-weight: bolder;
 }
+.col-md-6{
+    color:white;
+    font-weight: bolder;
+}
 </style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Register🎄') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

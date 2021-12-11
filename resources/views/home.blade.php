@@ -24,11 +24,12 @@
 table{
     margin:auto;
 }
-p{
+.timecss{
     margin:0;
     font-size: 40px;
     padding-bottom: 10px;
     color: #f194b4;
+    text-shadow: 2px -3px 0px #5d67a2f2;
 }
 
 .btn{
@@ -46,6 +47,10 @@ p{
     margin-bottom: 13px;
     font-weight: bold;
 }
+.btn:active{
+  top:3px;
+  box-shadow:none;
+}
 td{
     font-weight: bold;
     text-align: center;
@@ -56,6 +61,9 @@ body{
 }
 .dropdown-item{
     margin: 47%;
+}
+.name{
+    coler:white;
 }
 
 </style>
@@ -80,7 +88,7 @@ document.write(year+"年"+month+"月"+day+"日 "+week_ja[week]+"曜日");
 </script>
 </div>
 <div class="time">
-<p id="RealtimeClockArea2"></p>
+<p class="timecss" id="RealtimeClockArea2"></p>
 <script>
 function set2fig(num) {
    
@@ -104,16 +112,27 @@ setInterval('showClock2()',1000);
 <table class="attendancetable">
     <tr>
         <th colspan="1">
-        <button class="btn">出勤</button></th>
+        <form action="/time/intime" method="post">
+        @csrf
+        <button class="btn" id="text">出勤</button>
+        </th></form>
         <th>
-        <button class="btn">休憩開始</button></th>
+        <form action="/time/inbreak" method="post">
+        @csrf
+        <button class="btn">休憩開始</button></th></form>
         <th>
-        <button class="btn">休憩終了</button></th>
+        <form action="/time/outbreak" method="post">
+        @csrf
+        <button class="btn">休憩終了</button></th></form>
         <th>
-        <button class="btn">退勤</button></th>
+        <form action="/time/outtime" method="post">
+        @csrf
+        <button class="btn">退勤</button></th></form>
     </tr>
-    <tr><td class="c">9:00</td><td class="c">13:00</td><td class="c">14:00</td><td class="c">18:00</td></tr>
-</table>
+    <!--<tr><td class="c">9:00</td><td class="c">13:00</td><td class="c">14:00</td><td class="c">18:00</td></tr>-->
+</table> 
+
+
 <!--<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -130,6 +149,21 @@ setInterval('showClock2()',1000);
                     {{ __('You are logged in!') }}
                 </div>-->
     </div>
+    <div class="container">
+  @foreach ($itmes as $itme)
+  <div class="attendance">
+    <p class="name">{{$itme->user_name}}</p>
+    <table>
+      <tr><td colspan="1">出勤</td><td>{{$itme->punchIn}}</td></tr>
+      <tr><td>休憩開始</td><td>{{$itme->breakIn}}</td></tr>
+      <tr><td>休憩終了</td><td>{{$itme->breakOut}}</td></tr>
+      <tr><td>退勤</td><td>{{$itme->punchOut}}</td></tr>
+      <tr><td>休憩</td><td>{{$itme->workTime}}</td></tr>
+    </table>
+  </div>
+  @endforeach
+</div>
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -142,7 +176,10 @@ setInterval('showClock2()',1000);
                                     </form>
                                 </div>
                 <a href="/find">情報</a>
-                
+                @if(Auth::user()->admin == 0)
+<a href="/time/daily">日次勤怠
+</a>
+@endif
             </div>
         </div>
     </div>

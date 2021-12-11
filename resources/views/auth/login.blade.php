@@ -41,8 +41,8 @@ body {
   text-align:center;
   font-size:1.9em;
   font-weight:900;
-  color:#f1d907;
-  
+  color: #ffeb3b;
+  text-shadow: 3px 1px 0px #f57c00;
 }
 input {
   width:100%;
