@@ -34,3 +34,9 @@ Route::post('/time/outbreak','App\Http\Controllers\TimeController@outbreak');
 
 Route::get('/time/daily','App\Http\Controllers\TimeController@daily');
 Route::post('/time/daily','App\Http\Controllers\TimeController@dailyResult');
+
+Route::get('/update', [App\Http\Controllers\HomeController::class, 'updatefind'])->name('updatefind');
+
+
+
+Route::post('/update', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
