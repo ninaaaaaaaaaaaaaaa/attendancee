@@ -44,6 +44,7 @@ class HomeController extends Controller
     public function updatefind()
     {
         $users = DB::select('select * from users');
+        
         return view('update', ['users' => $users]);
     }
     public function update(Request $request)
