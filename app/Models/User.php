@@ -51,4 +51,5 @@ class User extends Authenticatable
         'password' => 'required',
         'phone_number' => 'required',
     );
+    protected $primarykey = 'id';
 }

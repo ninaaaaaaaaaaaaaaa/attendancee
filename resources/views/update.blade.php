@@ -22,7 +22,8 @@
   </tr>
   @endforeach
 </table>
-<button class="update-btn">更新</button>
+<input type="submit"  value="更新" class="update-btn">
+<input type="hidden" value="{{$user->id}}" name="id">
 </form>
 @endif
 </body>
