@@ -57,4 +57,9 @@ class HomeController extends Controller
         $user->fill($form)->save();
         return redirect('/update');
     }
+    public function delete(Request $request)
+    {
+        User::find($request->id)->delete();
+        return redirect('/find');
+    }
 }

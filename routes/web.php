@@ -38,5 +38,8 @@ Route::post('/time/daily','App\Http\Controllers\TimeController@dailyResult');
 Route::get('/update1', [App\Http\Controllers\HomeController::class, 'updatefind'])->name('updatefind');
 
 
-
+Route::get('/update', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
 Route::post('/update', [App\Http\Controllers\HomeController::class, 'update'])->name('update');
+
+Route::get('/delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+Route::post('/delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');

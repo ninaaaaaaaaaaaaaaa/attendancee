@@ -33,6 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        
         'password',
         'remember_token',
     ];
@@ -46,10 +47,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public static $rules = array(
+        'id',
         'name' => 'required',
         'email' => 'required',
         'password' => 'required',
         'phone_number' => 'required',
     );
-    protected $primarykey = 'id';
+    protected $guarded = array('id');
 }

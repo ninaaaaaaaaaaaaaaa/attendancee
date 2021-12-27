@@ -152,8 +152,9 @@ setInterval('showClock2()',1000);
     <div class="container">
   @foreach ($itmes as $itme)
   <div class="attendance">
-    <p class="name">{{$itme->user_name}}</p>
+    
     <table>
+    
       <tr><td colspan="1">出勤</td><td>{{$itme->punchIn}}</td></tr>
       <tr><td>休憩開始</td><td>{{$itme->breakIn}}</td></tr>
       <tr><td>休憩終了</td><td>{{$itme->breakOut}}</td></tr>
@@ -163,6 +164,7 @@ setInterval('showClock2()',1000);
   </div>
   @endforeach
 </div>
+
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
