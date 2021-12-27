@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 
+
 class HomeController extends Controller
 {
     /**
